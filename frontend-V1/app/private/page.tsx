@@ -45,7 +45,7 @@ export default function PrivateTradePage() {
     if (!userAddress) return;
     setPositionsLoading(true);
     try {
-      const res = await fetch(`http://localhost:8080/position/${userAddress}`);
+      const res = await fetch(`https://psix-backend.onrender.com/position/${userAddress}`);
       const json = await res.json();
       if (json.success && json.positions) {
         setPositions(json.positions);
@@ -62,7 +62,7 @@ export default function PrivateTradePage() {
       if (!userAddress) return;
       setBalanceLoading(true);
       try {
-        const res = await fetch(`http://localhost:8080/balance/${userAddress}`);
+        const res = await fetch(`https://psix-backend.onrender.com/balance/${userAddress}`);
         const json = await res.json();
         if (json.success) setUserBalance(json.balance);
       } catch (err) {
@@ -78,8 +78,8 @@ export default function PrivateTradePage() {
   useEffect(() => {
     (async () => {
       try {
-        await fetch('http://localhost:8080/setup/crypto', { method: 'POST' });
-        const res = await fetch('http://localhost:8080/crypto/public-key');
+        await fetch('https://psix-backend.onrender.com/setup/crypto', { method: 'POST' });
+        const res = await fetch('https://psix-backend.onrender.com/crypto/public-key');
         const json = await res.json();
         const pubkeyBytes = base64urlToUint8Array(json.publicKey);
         const pubkeyBuffer = pubkeyBytes.buffer.slice(pubkeyBytes.byteOffset, pubkeyBytes.byteOffset + pubkeyBytes.byteLength);
@@ -151,14 +151,14 @@ export default function PrivateTradePage() {
       (async () => {
         try {
           const amountInUSDC = BigInt(Math.floor(Number(depositAmount) * 1e6));
-          await fetch('http://localhost:8080/balance/add', {
+          await fetch('https://psix-backend.onrender.com/balance/add', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ user: userAddress, amount: amountInUSDC.toString() }),
           });
           alert(`✅ ${depositAmount} USDC deposited!`);
           setDepositAmount('');
-          const res = await fetch(`http://localhost:8080/balance/${userAddress}`);
+          const res = await fetch(`https://psix-backend.onrender.com/balance/${userAddress}`);
           const json = await res.json();
           if (json.success) setUserBalance(json.balance);
         } catch (e) {
@@ -172,7 +172,7 @@ export default function PrivateTradePage() {
     if (!botPk) return alert('Bot key not ready');
     try {
       const assetId = asset === 'TSLA' ? 0 : 1;
-      const sampleRes = await fetch('http://localhost:8080/trade/create-sample', {
+      const sampleRes = await fetch('https://psix-backend.onrender.com/trade/create-sample', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -185,7 +185,7 @@ export default function PrivateTradePage() {
       });
       const sampleJson = await sampleRes.json();
       const { enc, ct } = sampleJson.encrypted;
-      await fetch('http://localhost:8080/trade/submit', {
+      await fetch('https://psix-backend.onrender.com/trade/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ enc, ct }),
@@ -203,7 +203,7 @@ export default function PrivateTradePage() {
   const handleClosePosition = async () => {
     try {
       const assetId = asset === 'TSLA' ? 0 : 1;
-      const createRes = await fetch('http://localhost:8080/trade/create-close', {
+      const createRes = await fetch('https://psix-backend.onrender.com/trade/create-close', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -214,7 +214,7 @@ export default function PrivateTradePage() {
       });
       const createJson = await createRes.json();
       const { enc, ct } = createJson.encrypted;
-      await fetch('http://localhost:8080/trade/close', {
+      await fetch('https://psix-backend.onrender.com/trade/close', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ enc, ct }),
