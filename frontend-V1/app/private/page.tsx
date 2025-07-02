@@ -6,7 +6,6 @@ import { CipherSuite, HkdfSha256 } from '@hpke/core';
 import { DhkemX25519HkdfSha256 } from '@hpke/dhkem-x25519';
 import { Chacha20Poly1305 } from '@hpke/chacha20poly1305';
 import { useReadContract } from 'wagmi';
-import MarketChart from '../components/MarketChart';
 import abiJson2 from '@/abis/MockERc20.json'
 import {useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 const usdcAbi = abiJson2.abi

@@ -9,7 +9,7 @@ import {
 import { WagmiProvider } from 'wagmi';
 import { arbitrum, arbitrumSepolia, avalanche, avalancheFuji, sepolia} from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 

@@ -106,22 +106,22 @@ function GlassyCard({
   )
 }
 
-function ActionButton({
-  label,
-  onClick,
-}: {
-  label: string
-  onClick: () => void
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className="flex-1 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white text-lg font-bold shadow-md hover:scale-105 hover:shadow-xl transition-all duration-150 outline-none focus:ring-2 focus:ring-pink-400/40"
-    >
-      {label}
-    </button>
-  )
-}
+// function ActionButton({
+//   label,
+//   onClick,
+// }: {
+//   label: string
+//   onClick: () => void
+// }) {
+//   return (
+//     <button
+//       onClick={onClick}
+//       className="flex-1 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white text-lg font-bold shadow-md hover:scale-105 hover:shadow-xl transition-all duration-150 outline-none focus:ring-2 focus:ring-pink-400/40"
+//     >
+//       {label}
+//     </button>
+//   )
+// }
 
 function StatCard({ title, value }: { title: string; value: string }) {
   return (

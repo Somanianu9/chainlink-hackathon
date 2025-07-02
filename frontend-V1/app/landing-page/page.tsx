@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { ChevronRight, Shield, Zap, Coins, TrendingUp, Link, DollarSign, Mountain } from 'lucide-react'
+import { ChevronRight, Shield, Zap, Coins, TrendingUp, Link, DollarSign} from 'lucide-react'
 
 // Animated stars component
 function StarField() {

@@ -13,7 +13,7 @@ import {
 } from 'wagmi';
 import VaultABI from '../../utils/vault.json';
 import vaultSenderAbi from '@/abis/VaultContractSender.json';
-import { sepolia, avalancheFuji } from 'wagmi/chains';
+// import { sepolia, avalancheFuji } from 'wagmi/chains';
 import toast, { Toaster } from 'react-hot-toast';
 
 const CHAINS = [
@@ -45,7 +45,7 @@ export default function MintPage() {
   const [shares, setShares] = useState('');
   const [assetType, setAssetType] = useState<AssetLabel>('sTSLA');
   const [transactionError, setTransactionError] = useState('');
-  const [selectedChain, setSelectedChain] = useState<'fuji' | 'sepolia'>('fuji');
+  // const [selectedChain, setSelectedChain] = useState<'fuji' | 'sepolia'>('fuji');
   const [ccipData, setCcipData] = useState<{ hash?: string, error?: string }>({});
   const [simulationError, setSimulationError] = useState<string>('');
 
