@@ -1,7 +1,6 @@
 'use client';
 import { useAccount } from 'wagmi';
 import { useEffect, useState, useMemo } from 'react';
-import { Wallet } from 'ethers';
 import { CipherSuite, HkdfSha256 } from '@hpke/core';
 import { DhkemX25519HkdfSha256 } from '@hpke/dhkem-x25519';
 import { Chacha20Poly1305 } from '@hpke/chacha20poly1305';
