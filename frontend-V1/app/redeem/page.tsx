@@ -25,7 +25,7 @@ export default function RedeemStockPage() {
   const [simulationError, setSimulationError] = useState<string | null>(null);
   const [txError, setTxError] = useState<string | null>(null);
 
-  // const { address, isConnected } = useAccount();
+   const { address, isConnected } = useAccount();
   const { data: connectorClient } = useConnectorClient();
 
   // Simulate redeemStock
